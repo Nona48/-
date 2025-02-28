@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Құпия Жәшік Викторинасы</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            text-align: center;
+            background-color: #f5f0e1;
+            background-image: url('https://source.unsplash.com/1600x900/?library,books');
+            background-size: cover;
+            background-position: center;
+            color: #4a3f35;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .box {
+            width: 220px;
+            height: 220px;
+            background: linear-gradient(135deg, #8d6e63, #5d4037);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+            flex-direction: column;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            border: 2px solid #4e342e;
+        }
+        .box:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #6d4c41, #3e2723);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 28px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">📚 Құпия Жәшік Викторинасы 📖</h1>
+    <p style="font-size: 18px;">Жәшікті басып, сұрақты оқы. Қайта бассаң, жауабы шығады!</p>
+    <div class="container">
+        <script>
+            const questions = [
+                "Бұл ұлы қазақ ақыны және ойшылының өмір жолын бейнелейтін эпопея.",
+                "Қазақ халқының көшпенді өмірі, олардың тағдыры мен күресі туралы тарихи роман.",
+                "Мектеп оқушысының басынан кешкен қызықты әрі тәрбиелік мәні бар оқиғалар жайлы шығарма.",
+                "1812 жылғы соғыс пен ақсүйек отбасылардың тағдыры жайындағы тарихи роман.",
+                "Өз ар-ұжданымен күрескен қылмыскер студент туралы психологиялық шығарма.",
+                "Жас ақсүйектің махаббаты мен жоғары қоғамдағы өмірін суреттейтін поэтикалық роман.",
+                "Қас жауласқан екі отбасының перзенттері арасындағы қайғылы махаббат хикаясы.",
+                "Сүйіктісін қайтару үмітімен салтанатты кештер өткізген бай адамның тағдыры туралы роман."
+            ];
+            
+            const answers = [
+                "Абай жолы – Мұхтар Әуезов",
+                "Көшпенділер – Ілияс Есенберлин",
+                "Менің атым Қожа – Бердібек Соқпақбаев",
+                "Соғыс және бейбітшілік – Лев Толстой",
+                "Қылмыс пен жаза – Фёдор Достоевский",
+                "Евгений Онегин – Александр Пушкин",
+                "Romeo and Juliet – William Shakespeare",
+                "The Great Gatsby – F. Scott Fitzgerald"
+            ];
+
+            for (let i = 0; i < questions.length; i++) {
+                document.write(`<div class='box' onclick='toggleBox(this, ${i})'>Құпия жәшік</div>`);
+            }
+        </script>
+    </div>
+    <script>
+        function toggleBox(element, index) {
+            if (!element.dataset.state) {
+                element.innerHTML = questions[index];
+                element.dataset.state = "question";
+                element.style.background = "linear-gradient(135deg, #6d4c41, #3e2723)";
+            } else if (element.dataset.state === "question") {
+                element.innerHTML = "📖 " + answers[index];
+                element.dataset.state = "answer";
+                element.style.background = "linear-gradient(135deg, #2e7d32, #1b5e20)";
+            } else {
+                element.innerHTML = "Құпия жәшік";
+                element.dataset.state = "";
+                element.style.background = "linear-gradient(135deg, #8d6e63, #5d4037)";
+            }
+        }
+    </script>
+</body>
+</html>
